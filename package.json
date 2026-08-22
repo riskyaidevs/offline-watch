@@ -1,0 +1,21 @@
+{
+  "name": "flight-watch-party",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline watch party over a local Wi-Fi hotspot. No internet, no backend, ever.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @flightwatch/protocol && npm run build -w @flightwatch/web",
+    "test": "npm test -w @flightwatch/protocol && npm test -w @flightwatch/server && npm test -w @flightwatch/web",
+    "dev:server": "npm run dev -w @flightwatch/server",
+    "dev:web": "npm run dev -w @flightwatch/web",
+    "start": "npm run start -w @flightwatch/server"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  }
+}

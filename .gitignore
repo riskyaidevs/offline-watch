@@ -1,0 +1,7 @@
+node_modules/
+dist/
+certs/
+*.log
+.DS_Store
+.agent_tmp/
+dev-dist/
