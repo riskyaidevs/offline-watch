@@ -3,12 +3,11 @@ name: Build
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch: # manual trigger from the Actions tab
 
 jobs:
   build:
-    # Only ever produce downloadable artifacts from main.
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +19,9 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      # Only ever produce downloadable artifacts from main.
       - name: Package zip   # source + built apps/web/dist, no node_modules/certs/.git
+        if: github.ref == 'refs/heads/main'
         run: |
           python3 -c "
           import os, zipfile
@@ -37,6 +38,7 @@ jobs:
                       z.write(os.path.join(root, f), os.path.join(root, f))
           "
       - uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/main'
         with:
           name: flight-watch-party
           path: flight-watch-party.zip

@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # Major bumps (vite, fastify, vitest, ...) need deliberate migration,
+      # not blind merging.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
