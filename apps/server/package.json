@@ -14,12 +14,12 @@
     "@flightwatch/protocol": "*",
     "fastify": "^4.28.1",
     "qrcode-terminal": "^0.12.0",
-    "ws": "^8.18.0",
+    "ws": "^8.22.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "@types/ws": "^8.5.13",
+    "@types/ws": "^8.18.2",
     "tsx": "^4.19.2"
   }
 }
